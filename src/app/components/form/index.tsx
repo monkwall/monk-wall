@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import Cross from "../svgs/Cross";
 
@@ -30,37 +30,23 @@ export default function Form() {
     });
   };
 
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const datam = {
-  //     email: formData.email,
-  //     message: `Name: ${formData.firstName} ${formData.lastName}. Company: ${formData.company}. Message: ${formData.message}`,
-  //   };
-  //   try {
-  //     // Make the POST request
-  //     const result = await postData(datam);
+  useEffect(() => {
+    if (state.succeeded) {
+      setSuccessVisible(true);
+      setTimeout(() => {
+        setSuccessVisible(false);
+      }, 3000);
+    }
+  }, [state.succeeded]);
 
-  //     // Handle the result as needed
-  //     setSuccessVisible(true);
-  //     setTimeout(() => {
-  //       setSuccessVisible(false);
-  //     }, 3000);
-  //   } catch (error: any) {
-  //     // Handle errors
-  //     console.error("API Error:", error.message);
-  //     setErrorVisible(true);
-  //     setTimeout(() => {
-  //       setErrorVisible(false);
-  //     }, 3000);
-  //   }
-  //   setFormData({
-  //     firstName: "",
-  //     lastName: "",
-  //     company: "",
-  //     email: "",
-  //     message: "",
-  //   });
-  // };
+  useEffect(() => {
+    if (state.errors) {
+      setErrorVisible(true);
+      setTimeout(() => {
+        setErrorVisible(false);
+      }, 3000);
+    }
+  }, [state.errors]);
 
   return (
     <div className="isolate px-6 lg:px-8 pt-4">
@@ -198,20 +184,6 @@ export default function Form() {
           </button>
         </div>
       </form>
-      {/* <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email Address</label>
-        <input id="email" type="email" name="email" />
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
-        <textarea id="message" name="message" />
-        <ValidationError
-          prefix="Message"
-          field="message"
-          errors={state.errors}
-        />
-        <button type="submit" disabled={state.submitting}>
-          Submit
-        </button>
-      </form> */}
       {/* Success Popup */}
       {successVisible && (
         <div className="fixed top-0 left-0 w-full h-full bg-green-500 bg-opacity-75 flex items-center justify-center">
