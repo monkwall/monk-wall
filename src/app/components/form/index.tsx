@@ -1,6 +1,6 @@
 "use client";
-import axios from "axios";
 import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import Cross from "../svgs/Cross";
 
 interface ChangeEvent extends Event {
@@ -11,25 +11,6 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-const api = axios.create({
-  baseURL: "https://formspree.io/f/mrgnegvr", // Replace with your API base URL
-});
-
-export const postData = async (
-  path: string,
-  data: {
-    email: string;
-    message: string;
-  }
-) => {
-  try {
-    const response = await api.post(path, data);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
 export default function Form() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -38,6 +19,7 @@ export default function Form() {
     email: "",
     message: "",
   });
+  const [state, handleSubmit] = useForm("mrgnegvr");
   const [successVisible, setSuccessVisible] = useState(false);
   const [errorVisible, setErrorVisible] = useState(false);
 
@@ -48,40 +30,40 @@ export default function Form() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const datam = {
-      email: formData.email,
-      message: `Name: ${formData.firstName} ${formData.lastName}. Company: ${formData.company}. Message: ${formData.message}`,
-    };
-    try {
-      // Make the POST request
-      const result = await postData("/api/submit", datam);
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   const datam = {
+  //     email: formData.email,
+  //     message: `Name: ${formData.firstName} ${formData.lastName}. Company: ${formData.company}. Message: ${formData.message}`,
+  //   };
+  //   try {
+  //     // Make the POST request
+  //     const result = await postData(datam);
 
-      // Handle the result as needed
-      setSuccessVisible(true);
-      setTimeout(() => {
-        setSuccessVisible(false);
-      }, 3000);
-    } catch (error: any) {
-      // Handle errors
-      console.error("API Error:", error.message);
-      setErrorVisible(true);
-      setTimeout(() => {
-        setErrorVisible(false);
-      }, 3000);
-    }
-    setFormData({
-      firstName: "",
-      lastName: "",
-      company: "",
-      email: "",
-      message: "",
-    });
-  };
+  //     // Handle the result as needed
+  //     setSuccessVisible(true);
+  //     setTimeout(() => {
+  //       setSuccessVisible(false);
+  //     }, 3000);
+  //   } catch (error: any) {
+  //     // Handle errors
+  //     console.error("API Error:", error.message);
+  //     setErrorVisible(true);
+  //     setTimeout(() => {
+  //       setErrorVisible(false);
+  //     }, 3000);
+  //   }
+  //   setFormData({
+  //     firstName: "",
+  //     lastName: "",
+  //     company: "",
+  //     email: "",
+  //     message: "",
+  //   });
+  // };
 
   return (
-    <div className="isolate px-6 py-24 sm:py-32 lg:px-8">
+    <div className="isolate px-6 lg:px-8 pt-4">
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -104,15 +86,7 @@ export default function Form() {
           development services. Your success is just a message away 🚀✨
         </p>
       </div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          handleSubmit(e);
-        }}
-        method="post"
-        className="mx-auto mt-8 max-w-xl"
-      >
+      <form onSubmit={handleSubmit} className="mx-auto mt-8 max-w-xl">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
@@ -216,6 +190,7 @@ export default function Form() {
         </div>
         <div className="mt-10">
           <button
+            disabled={state.submitting}
             type="submit"
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
@@ -223,6 +198,20 @@ export default function Form() {
           </button>
         </div>
       </form>
+      {/* <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email Address</label>
+        <input id="email" type="email" name="email" />
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
+        <textarea id="message" name="message" />
+        <ValidationError
+          prefix="Message"
+          field="message"
+          errors={state.errors}
+        />
+        <button type="submit" disabled={state.submitting}>
+          Submit
+        </button>
+      </form> */}
       {/* Success Popup */}
       {successVisible && (
         <div className="fixed top-0 left-0 w-full h-full bg-green-500 bg-opacity-75 flex items-center justify-center">
