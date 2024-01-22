@@ -15,13 +15,13 @@ const Contact = () => {
         }}
       ></div>
       <div className="flex flex-col-reverse lg:block">
-        <div className="flex lg:block justify-between z-10">
+        <div className="flex lg:block justify-between z-10 items-center">
           <div className="lg:absolute lg:bottom-10 lg:transform lg:-translate-y-1/2 lg:right-0 p-4">
             <Image
               src="/33.png"
               alt="Monk Images With Laptop"
-              width={200}
-              height={200}
+              width={240}
+              height={240}
             />
           </div>
           <div className="lg:absolute lg:bottom-0 lg:transform lg:-translate-y-1/2 lg:left-0 p-4">
