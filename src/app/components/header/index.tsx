@@ -108,7 +108,7 @@ const Header = () => {
                   alt={Company}
                   objectFit="contain"
                 />
-                <h1>{Company}</h1>
+                {/* <h1>{Company}</h1> */}
               </Link>
               <div>
                 {ToggleButton()}
