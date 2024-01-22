@@ -49,10 +49,10 @@ const Header = () => {
     <>
       <header>
         <nav
-          className="fixed top-0 left-0 right-0 mx-auto flex max-w-screen-2xl items-center justify-between py-6 lg:px-4 z-10  light-nav dark:dark-nav"
+          className="fixed top-0 left-0 right-0 mx-auto flex max-w-screen-2xl items-center justify-between py-6 lg:px-4 z-50 light-nav dark:dark-nav"
           aria-label="Global"
         >
-          <div className="flex lg:flex-1">
+          <div className="flex lg:flex-1 px-3">
             <Link rel="canonical" href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">{Company}</span>
               <Image

@@ -14,7 +14,7 @@ const Testimonials = () => {
           filter: "blur(8px)", // Adjust the blur value as needed
         }}
       ></div>
-      <div className="hidden lg:block absolute bottom-0 transform -translate-y-1/2 right-0 p-4">
+      <div className=" absolute bottom-0 transform -translate-y-1/2 right-0 p-4">
         <Image
           src="/30.png"
           alt="Monk Images With Laptop"
@@ -22,7 +22,7 @@ const Testimonials = () => {
           height={160}
         />
       </div>
-      <div className="hidden lg:block absolute bottom-0 transform -translate-y-1/2 left-0 p-4">
+      <div className=" absolute bottom-0 transform -translate-y-1/2 left-0 p-4">
         <Image
           src="/3.png"
           alt="Monk Images With Laptop"

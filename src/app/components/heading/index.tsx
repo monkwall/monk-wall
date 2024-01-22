@@ -20,7 +20,7 @@ const Heading = () => {
           alt="Monk Images With Laptop"
           width={200}
           height={200}
-          className="mx-auto mt-5"
+          className="mx-auto mt-5 hidden lg:block"
         />
       </div>
       <div className="lg:block md:absolute md:top-1/2 transform -translate-y-1/2 right-0 p-4 contents">

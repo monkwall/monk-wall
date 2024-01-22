@@ -153,7 +153,7 @@ const Profile = () => {
               height={192}
               src={profile.logo} // Replace with the path to your image
               alt={profile.logoAlt}
-              className="object-contain mx-auto mb-5"
+              className="object-contain mx-auto mb-5 hidden lg:block"
             />
             <div>
               <Image
