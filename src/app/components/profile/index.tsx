@@ -74,7 +74,7 @@ const Profile = () => {
     {
       logo: "/5.png",
       logoAlt: "Monk Logo",
-      profileImage: "/profile1.jpg",
+      profileImage: "/profile2.jpeg",
       ProfileImageAlt: "Founder's Image",
       name: "Jayant Sharma",
       stats: [
@@ -144,7 +144,7 @@ const Profile = () => {
           } items-center md:items-start md:justify-between p-8`}
         >
           <div
-            className={`md:w-1/2 flex ${
+            className={`md:w-1/2 md:flex ${
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
@@ -153,7 +153,7 @@ const Profile = () => {
               height={192}
               src={profile.logo} // Replace with the path to your image
               alt={profile.logoAlt}
-              className="object-contain"
+              className="object-contain mx-auto mb-5"
             />
             <div>
               <Image
@@ -162,7 +162,9 @@ const Profile = () => {
                 src={profile.profileImage} // Replace with the path to your image
                 alt={profile.ProfileImageAlt}
                 className={`object-cover rounded-full ${
-                  index === 0 ? "pl-36 ml-auto mr-12" : "pr-36 mr-auto ml-12"
+                  index === 0
+                    ? "md:pl-36 md:ml-auto md:mr-12"
+                    : "md:pr-36 md:mr-auto md:ml-12"
                 }`}
               />
               <div className="flex mt-4 justify-center">

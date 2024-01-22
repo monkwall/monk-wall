@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Heading = () => {
   return (
-    <div className="p-6 pb-12 min-h-screen relative max-w-7xl mx-auto">
+    <div className="p-6 pb-12 mt-12 min-h-[75vh] relative max-w-7xl mx-auto flex flex-col-reverse md:block">
       {/* <div
         className="w-full h-5/6 absolute inset-0 bottom-10 bg-bottom bg-no-repeat bg-slate-50 dark:bg-[#0B1120] index_beams__yWcJT dark:opacity-101 opacity-751 dark:opacity-30 opacity-50"
         style={{
@@ -14,24 +14,26 @@ const Heading = () => {
           filter: "blur(8px)", // Adjust the blur value as needed
         }}
       ></div> */}
-      <div className="hidden lg:block absolute top-1/2 transform -translate-y-1/2 right-0 p-4">
-        <Image
-          src="/7.png"
-          alt="Monk Images With Laptop"
-          width={200}
-          height={200}
-        />
-      </div>
-      <div className="hidden lg:block absolute top-1/2 transform -translate-y-1/2 left-0 p-4">
+      <div className="lg:block md:absolute md:top-1/2 transform -translate-y-1/2 left-0 p-4 contents mt-3">
         <Image
           src="/4.png"
           alt="Monk Images With Laptop"
           width={200}
           height={200}
+          className="mx-auto mt-5"
+        />
+      </div>
+      <div className="lg:block md:absolute md:top-1/2 transform -translate-y-1/2 right-0 p-4 contents">
+        <Image
+          src="/7.png"
+          alt="Monk Images With Laptop"
+          width={200}
+          height={200}
+          className="mx-auto mt-5"
         />
       </div>
       <div className="max-w-4xl relative mx-auto">
-        <div className="text-center mt-12 dark:text-sky-400">
+        <div className="text-center dark:text-sky-400">
           <div className={styles.wrapper}>
             <div className={styles.top}>Monk Wall</div>
             <div className={`${styles.bottom} dark:hidden`} aria-hidden="true">

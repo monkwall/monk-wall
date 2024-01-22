@@ -6,7 +6,7 @@ import Contact from "./components/contact";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex flex-col items-center justify-between">
       <section className="mt-[139px] w-full" id="home">
         <Heading />
       </section>

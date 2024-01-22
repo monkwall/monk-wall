@@ -73,7 +73,7 @@ const Header = () => {
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
-              <Menu className="h-6 w-6" aria-hidden="true" />
+              <Menu className="h-8 w-8 mx-3" aria-hidden="true" />
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12 lg:justify-end items-center">
@@ -81,7 +81,7 @@ const Header = () => {
               <Link
                 rel="canonical"
                 href={"#" + section.toLocaleLowerCase().replace(/\s+/g, "-")}
-                key={index + "-sectiom"}
+                key={index + "-section"}
                 className="text-sm font-semibold leading-6"
               >
                 {section}
@@ -113,7 +113,6 @@ const Header = () => {
               <div>
                 {ToggleButton()}
                 <button
-                  type="button"
                   className="-m-2.5 rounded-md p-2.5 text-gray-700"
                   onClick={() => setMobileMenuOpen(false)}
                 >
