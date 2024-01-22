@@ -27,7 +27,7 @@ export default function Form() {
           Contact Us
         </h2>
         <p className="mt-2 text-lg leading-8 dark:text-sky-500">
-          Ready to elevate your digital presence? Let`&apos;`s connect and bring
+          Ready to elevate your digital presence? Let&apos;s connect and bring
           your vision to life! Contact us for expert web and mobile app
           development services. Your success is just a message away 🚀✨
         </p>
@@ -125,7 +125,7 @@ export default function Form() {
             type="submit"
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Let`&apos;`s talk
+            Let&apos;s talk
           </button>
         </div>
       </form>
