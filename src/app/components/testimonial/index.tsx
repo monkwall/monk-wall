@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Testimonial.module.css";
+import Image from "next/image";
 
 const TestimonialCard = ({ avatarSrc, name, role, comment, url }: any) => {
   return (
@@ -10,7 +11,13 @@ const TestimonialCard = ({ avatarSrc, name, role, comment, url }: any) => {
         <div className="p-4">
           <div className="flex items-center">
             <a target="_blank" rel="noreferrer" className="block" href={url}>
-              <img src={avatarSrc} alt="Avatar" className="w-12 h-12 mr-4" />
+              <Image
+                height={48}
+                width={48}
+                src={avatarSrc}
+                alt="Avatar"
+                className="mr-4"
+              />
             </a>
             <div>
               <a target="_blank" rel="noreferrer" className="block" href={url}>
@@ -41,7 +48,7 @@ const Testimonial = () => {
   const testimonialsData = [
     {
       id: 1,
-      avatarSrc: "./sunilhorse.png", // replace with actual image source
+      avatarSrc: "/sunilhorse.png", // replace with actual image source
       url: "https://www.sunilhorse.com/",
       name: "Sunil Horse",
       role: "Game Developer",
@@ -53,7 +60,7 @@ const Testimonial = () => {
     },
     {
       id: 2,
-      avatarSrc: "swastikacademy.png", // replace with actual image source
+      avatarSrc: "/swastikacademy.png", // replace with actual image source
       name: "Swastik Academy",
       url: "https://www.swastikacademy.in/",
       role: "Where Every Lesson Shapes a Bright Tomorrow.",
@@ -69,7 +76,7 @@ const Testimonial = () => {
     },
     {
       id: 3,
-      avatarSrc: "./Aiqua.svg", // replace with actual image source
+      avatarSrc: "/Aiqua.svg", // replace with actual image source
       name: "Aiqua",
       role: "Ai Powered Company",
       url: "https://aiqua-webapp.vercel.app/",

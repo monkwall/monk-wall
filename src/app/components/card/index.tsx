@@ -1,9 +1,16 @@
+import Image from "next/image";
 import React from "react";
 
 const Card = ({ imgSrc, title, description }: any) => {
   return (
     <div className="max-w-md bg-white shadow-md rounded-md overflow-hidden mx-4 my-6">
-      <img src={imgSrc} alt="Profile" className="w-full h-40 object-cover" />
+      <Image
+        src={imgSrc}
+        height={160}
+        width={160}
+        alt="Profile"
+        className="w-full h-40 object-cover"
+      />
       <div className="p-4">
         <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
         <p className="text-gray-600 mt-2">{description}</p>
