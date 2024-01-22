@@ -60,7 +60,7 @@ const Profile = () => {
               />
             </div>
           ),
-          phone: `tel:15733944990`,
+          url: `tel:15733944990`,
         },
       ],
       description: [
@@ -121,7 +121,7 @@ const Profile = () => {
               <Mobile className="w-8 h-8" aria-hidden="true" />
             </div>
           ),
-          phone: `tel:+918076329843`,
+          url: `tel:+918076329843`,
         },
       ],
       description: [

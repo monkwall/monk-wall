@@ -62,7 +62,7 @@ const Header = () => {
                 src="/logo.png"
                 alt={Company}
               />
-              <h1>{Company}</h1>
+              <h1 className="hidden lg:block">{Company}</h1>
             </Link>
           </div>
           <div className="flex lg:hidden">
