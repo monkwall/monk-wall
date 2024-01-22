@@ -69,7 +69,7 @@ const Header = () => {
             {ToggleButton()}
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-sky-50"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -91,13 +91,13 @@ const Header = () => {
           </div>
         </nav>
         <div
-          className={`lg:hidden fixed inset-0 z-10  ${
+          className={`lg:hidden fixed inset-0 z-50  ${
             mobileMenuOpen ? "block" : "hidden"
           }`}
           onClick={() => setMobileMenuOpen(false)}
         >
           <div className="fixed inset-0 bg-black opacity-50 "></div>
-          <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 light dark:dark">
+          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 light dark:dark">
             <div className="flex items-center justify-between mb-6">
               <Link rel="canonical" href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">{Company}</span>
@@ -113,7 +113,7 @@ const Header = () => {
               <div>
                 {ToggleButton()}
                 <button
-                  className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                  className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-sky-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>

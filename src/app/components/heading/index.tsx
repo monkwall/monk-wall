@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Heading = () => {
   return (
-    <div className="p-6 pb-12 mt-12 min-h-[75vh] relative max-w-7xl mx-auto flex flex-col-reverse md:block">
+    <div className="p-6 pt-0 lg:pt-6  pb-12 lg:mt-12 min-h-[75vh] relative max-w-7xl mx-auto flex flex-col-reverse md:block">
       {/* <div
         className="w-full h-5/6 absolute inset-0 bottom-10 bg-bottom bg-no-repeat bg-slate-50 dark:bg-[#0B1120] index_beams__yWcJT dark:opacity-101 opacity-751 dark:opacity-30 opacity-50"
         style={{
