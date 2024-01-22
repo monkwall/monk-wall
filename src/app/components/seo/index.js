@@ -87,7 +87,7 @@ const Seo = () => {
         content={metadata.image.height.toString()}
       />
       <meta name="twitter:card" content={metadata.card} />
-      <meta name="twitter:image" content={logo} />
+      <meta name="twitter:image" content={"/logo.png"} />
       <meta name="twitter:title" content={metadata.title} />
       <meta name="twitter:creator" content={metadata.creator} />
       <meta name="twitter:site" content={metadata.site} />
