@@ -1,0 +1,39 @@
+.top {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+    color: inherit;
+}
+
+.bottom {
+    /* Default gradient for light theme */
+    clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+    color: transparent;
+    transform: translateX(-0.02em);
+    background: -webkit-linear-gradient(177deg, gray 53%, black 65%);
+    background: linear-gradient(177deg, gray 53%, black 65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.darkBottom, :is(.dark .dark\:darkBottom) {
+    /* Gradient for dark theme */
+    clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+    color: transparent;
+    transform: translateX(-0.02em);
+    background: -webkit-linear-gradient(177deg, rgb(125 211 252) 53%, rgb(56 189 248) 65%);
+    background: linear-gradient(177deg, rgb(125 211 252) 53%, rgb(56 189 248) 65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.wrapper {
+    display: grid;
+    place-content: center;
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(.5rem, .5rem + 4vw, 5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.wrapper>div {
+    grid-area: 1/1/-1/-1;
+}
