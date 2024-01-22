@@ -50,7 +50,7 @@ const Heading = () => {
         </div>
         <div>
           <h3 className="mt-6 font-medium text-center text-slate-700 dark:text-slate-400 dark">
-            "Welcome to Monk Wall, where we specialize in delivering
+            `&quot;`Welcome to Monk Wall, where we specialize in delivering
             comprehensive solutions for your digital presence. As a seasoned
             team of developers and designers, we take pride in offering
             end-to-end services for website and mobile app development. From
@@ -60,7 +60,7 @@ const Heading = () => {
             dedicated to delivering cutting-edge solutions that meet your unique
             requirements. Explore the possibilities with Monk Wall and let us
             transform your vision into a seamless and engaging digital
-            experience."
+            experience.`&quot;`
           </h3>
         </div>
       </div>
