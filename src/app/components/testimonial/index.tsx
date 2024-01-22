@@ -5,7 +5,7 @@ import Image from "next/image";
 const TestimonialCard = ({ avatarSrc, name, role, comment, url }: any) => {
   return (
     <div
-      className={`flex-shrink-0 rounded-md overflow-hidden mx-4 ${style.card} bg-[#ffffff60] dark:bg-[#0000008c]`}
+      className={`flex-shrink-0 w-5/6 lg:w-fit rounded-md overflow-hidden mx-4 ${style.card} bg-[#ffffff60] dark:bg-[#0000008c]`}
     >
       <div className="max-w-md rounded-md overflow-hidden mx-2">
         <div className="p-4">
