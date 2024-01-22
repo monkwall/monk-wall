@@ -153,7 +153,7 @@ const Profile = () => {
               height={192}
               src={profile.logo} // Replace with the path to your image
               alt={profile.logoAlt}
-              className="w-48 h-48 object-contain"
+              className="object-contain"
             />
             <div>
               <Image

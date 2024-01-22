@@ -1,8 +1,8 @@
-// components/CrossIcon.js
+// components/Light.js
 
 import React from 'react';
 
-const CrossIcon = ({ width = '800px', height = '800px', fill = '#000000', className }) => {
+const Light = ({ width = '800px', height = '800px', fill = '#000000', className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -35,4 +35,4 @@ const CrossIcon = ({ width = '800px', height = '800px', fill = '#000000', classN
   );
 };
 
-export default CrossIcon;
+export default Light;

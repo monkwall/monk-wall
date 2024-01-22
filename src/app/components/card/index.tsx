@@ -9,7 +9,7 @@ const Card = ({ imgSrc, title, description }: any) => {
         height={160}
         width={160}
         alt="Profile"
-        className="w-full h-40 object-cover"
+        className="object-cover"
       />
       <div className="p-4">
         <h2 className="text-xl font-semibold text-gray-800">{title}</h2>

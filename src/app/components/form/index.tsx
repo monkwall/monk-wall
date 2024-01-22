@@ -1,12 +1,84 @@
 "use client";
+import axios from "axios";
 import { useState } from "react";
+import Cross from "../svgs/Cross";
+
+interface ChangeEvent extends Event {
+  target: HTMLInputElement;
+}
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 
+const api = axios.create({
+  baseURL: "https://formspree.io/f/mrgnegvr", // Replace with your API base URL
+});
+
+export const postData = async (
+  path: string,
+  data: {
+    email: string;
+    message: string;
+  }
+) => {
+  try {
+    const response = await api.post(path, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default function Form() {
-  const [agreed, setAgreed] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    company: "",
+    email: "",
+    message: "",
+  });
+  const [successVisible, setSuccessVisible] = useState(false);
+  const [errorVisible, setErrorVisible] = useState(false);
+
+  const onChange = (e: ChangeEvent) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const datam = {
+      email: formData.email,
+      message: `Name: ${formData.firstName} ${formData.lastName}. Company: ${formData.company}. Message: ${formData.message}`,
+    };
+    try {
+      // Make the POST request
+      const result = await postData("/api/submit", datam);
+
+      // Handle the result as needed
+      setSuccessVisible(true);
+      setTimeout(() => {
+        setSuccessVisible(false);
+      }, 3000);
+    } catch (error: any) {
+      // Handle errors
+      console.error("API Error:", error.message);
+      setErrorVisible(true);
+      setTimeout(() => {
+        setErrorVisible(false);
+      }, 3000);
+    }
+    setFormData({
+      firstName: "",
+      lastName: "",
+      company: "",
+      email: "",
+      message: "",
+    });
+  };
 
   return (
     <div className="isolate px-6 py-24 sm:py-32 lg:px-8">
@@ -32,11 +104,19 @@ export default function Form() {
           development services. Your success is just a message away 🚀✨
         </p>
       </div>
-      <form action="#" method="POST" className="mx-auto mt-8 max-w-xl">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          handleSubmit(e);
+        }}
+        method="post"
+        className="mx-auto mt-8 max-w-xl"
+      >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
-              htmlFor="first-name"
+              htmlFor="firstName"
               className="block text-sm font-semibold leading-6"
             >
               First name
@@ -45,15 +125,18 @@ export default function Form() {
               <input
                 type="text"
                 name="first-name"
-                id="first-name"
+                id="firstName"
+                onChange={(e) => onChange}
+                defaultValue={formData.firstName}
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-inherit"
+                required
               />
             </div>
           </div>
           <div>
             <label
-              htmlFor="last-name"
+              htmlFor="lastName"
               className="block text-sm font-semibold leading-6"
             >
               Last name
@@ -62,9 +145,12 @@ export default function Form() {
               <input
                 type="text"
                 name="last-name"
-                id="last-name"
+                id="lastName"
+                onChange={(e) => onChange}
+                defaultValue={formData.lastName}
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-inherit"
+                required
               />
             </div>
           </div>
@@ -80,8 +166,11 @@ export default function Form() {
                 type="text"
                 name="company"
                 id="company"
+                onChange={(e) => onChange}
+                defaultValue={formData.company}
                 autoComplete="organization"
                 className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-inherit"
+                required
               />
             </div>
           </div>
@@ -97,8 +186,11 @@ export default function Form() {
                 type="email"
                 name="email"
                 id="email"
+                onChange={(e) => onChange}
+                defaultValue={formData.email}
                 autoComplete="email"
                 className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-inherit"
+                required
               />
             </div>
           </div>
@@ -113,9 +205,11 @@ export default function Form() {
               <textarea
                 name="message"
                 id="message"
+                onChange={(e) => onChange}
+                defaultValue={formData.message}
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-inherit"
-                defaultValue={""}
+                required
               />
             </div>
           </div>
@@ -129,6 +223,37 @@ export default function Form() {
           </button>
         </div>
       </form>
+      {/* Success Popup */}
+      {successVisible && (
+        <div className="fixed top-0 left-0 w-full h-full bg-green-500 bg-opacity-75 flex items-center justify-center">
+          <div className="flex">
+            <p className="text-white">Success! Your message was sent.</p>
+            <button
+              className="text-white"
+              onClick={() => setSuccessVisible(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <Cross className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Error Popup */}
+      {errorVisible && (
+        <div className="fixed top-0 left-0 w-full h-full bg-red-500 bg-opacity-75 flex items-center justify-center">
+          <div className="flex">
+            <p className="text-white">Error! Something went wrong.</p>
+            <button
+              className="text-white"
+              onClick={() => setErrorVisible(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <Cross className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
