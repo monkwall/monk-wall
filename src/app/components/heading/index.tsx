@@ -47,7 +47,7 @@ const Heading = () => {
             </div>
           </div>
           <p className="text-lg text-slate-500 dark:text-sky-400">
-            We Illustrate Your Vision and bring your ideas to life.
+            We bring your digitalization dreams to life.
           </p>
         </div>
         <div>
