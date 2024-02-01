@@ -7,7 +7,6 @@ const Seo = () => {
   const description =
     "We bring your digitalization dreams to life. Welcome to Monk Wall, where we specialize in delivering comprehensive solutions for your digital presence. As a seasoned team of developers and designers, we take pride in offering end-to-end services for website and mobile app development. From conceptualization to deployment, our skilled professionals work collaboratively to bring your ideas to life. Whether you need a dynamic website or a feature-rich mobile application, we are dedicated to delivering cutting-edge solutions that meet your unique requirements. Explore the possibilities with Monk Wall and let us transform your vision into a seamless and engaging digital experience.";
   const url = "https://monkwall.com/";
-  const logo = "/favicon-32x32.png";
   const author = "Monk Wall";
   const publishedTime = "2024-01-01T12:00:00Z";
   const lastModifiedTime = "2024-01-02T14:30:00Z";
@@ -31,7 +30,7 @@ const Seo = () => {
       url: "/logo.png",
       width: 400,
       height: 300,
-      type: "image/jpeg",
+      type: "image/png",
     },
     card: "summary_large_image",
     site: "@monk-wall",
