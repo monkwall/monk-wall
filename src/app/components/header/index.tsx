@@ -53,7 +53,7 @@ const Header = () => {
           aria-label="Global"
         >
           <div className="flex lg:flex-1 px-3">
-            <Link rel="canonical" href="#" className="-m-1.5 p-1.5">
+            <Link rel="canonical" href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">{Company}</span>
               <Image
                 width={65}
@@ -80,7 +80,11 @@ const Header = () => {
             {Sections.map((section, index) => (
               <Link
                 rel="canonical"
-                href={"#" + section.toLocaleLowerCase().replace(/\s+/g, "-")}
+                href={
+                  section === "Home"
+                    ? "/"
+                    : "#" + section.toLocaleLowerCase().replace(/\s+/g, "-")
+                }
                 key={index + "-section"}
                 className="text-sm font-semibold leading-6"
               >
@@ -99,7 +103,7 @@ const Header = () => {
           <div className="fixed inset-0 bg-black opacity-50 "></div>
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 light dark:dark">
             <div className="flex items-center justify-between mb-6">
-              <Link rel="canonical" href="#" className="-m-1.5 p-1.5">
+              <Link rel="canonical" href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">{Company}</span>
                 <Image
                   width={65}
