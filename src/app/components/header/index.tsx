@@ -29,7 +29,7 @@ const Header = () => {
     return (
       <Button
         onClick={(e) => {
-          e.preventDefault;
+          e.preventDefault();
           e.stopPropagation();
           toggleTheme();
         }}
