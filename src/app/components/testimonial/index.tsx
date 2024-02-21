@@ -48,13 +48,13 @@ const Testimonial = () => {
   const testimonialsData = [
     {
       id: 1,
-      avatarSrc: "/sunilhorse.png", // replace with actual image source
-      url: "https://www.sunilhorse.com/",
-      name: "Sunil Horse",
-      role: "Game Developer",
+      avatarSrc: "/one-line-story.png", // replace with actual image source
+      url: "https://one-line-story.monkwall.com/",
+      name: "One Line Story",
+      role: "Game",
       comment: [
-        `Greetings Team,`,
-        `I am simply amazed by the website you've developed for me. It not only meets but exceeds my expectations. Your skill and professionalism are evident in every aspect. I am truly grateful.`,
+        `Powered by Monk Wall,`,
+        `Welcome to One Line Story Game!. Let's build a story and have Fun!`,
         `Best regards,`,
       ],
     },
@@ -76,6 +76,18 @@ const Testimonial = () => {
     },
     {
       id: 3,
+      avatarSrc: "/sunilhorse.png", // replace with actual image source
+      url: "https://www.sunilhorse.com/",
+      name: "Sunil Horse",
+      role: "Game Developer",
+      comment: [
+        `Greetings Team,`,
+        `I am simply amazed by the website you've developed for me. It not only meets but exceeds my expectations. Your skill and professionalism are evident in every aspect. I am truly grateful.`,
+        `Best regards,`,
+      ],
+    },
+    {
+      id: 4,
       avatarSrc: "/Aiqua.svg", // replace with actual image source
       name: "Aiqua",
       role: "Ai Powered Company",
